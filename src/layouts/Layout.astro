@@ -1,0 +1,64 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "HugeContext - Local context engine for AI coding assistants. Signal over noise for code." } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="generator" content={Astro.generator} />
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/HugeContextIcon-Light.png" />
+    
+    <title>{title}</title>
+  </head>
+  <body class="min-h-screen antialiased">
+    <slot />
+    
+    <script is:inline>
+      // Theme initialization - runs before paint to prevent flash
+      (function() {
+        const savedTheme = localStorage.getItem('hc-theme');
+        const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const theme = savedTheme || (systemPrefersDark ? 'dark' : 'dark'); // Default to dark
+        document.documentElement.setAttribute('data-theme', theme);
+        
+        // Update favicon based on theme
+        const favicon = document.querySelector('link[rel="icon"]');
+        if (favicon) {
+          favicon.href = theme === 'dark' ? '/HugeContextIcon-Dark.png' : '/HugeContextIcon-Light.png';
+        }
+        
+        // Update logo images immediately to prevent flash of wrong theme
+        const updateLogos = () => {
+          document.querySelectorAll('[data-theme-logo]').forEach(img => {
+            const darkSrc = img.getAttribute('data-dark-src');
+            const lightSrc = img.getAttribute('data-light-src');
+            if (darkSrc && lightSrc) {
+              img.src = theme === 'dark' ? darkSrc : lightSrc;
+            }
+          });
+        };
+        // Run once DOM is ready (script is at end of body so elements exist)
+        updateLogos();
+      })();
+    </script>
+  </body>
+</html>
+
+<style is:global>
+  @import '../styles/global.css';
+</style>

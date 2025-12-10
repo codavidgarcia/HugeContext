@@ -1,0 +1,103 @@
+---
+// How It Works - 3 step process
+const steps = [
+  {
+    number: "01",
+    title: "Auto-Index Everything",
+    description: "Open any project. HugeContext silently indexes files, functions, and imports in the background. No manual config needed.",
+  },
+  {
+    number: "02",
+    title: "Plug & Play",
+    description: "Connect instantly to Claude, Cursor, Windsurf, or VS Code via MCP. Changes are reflected in real-time.",
+  },
+  {
+    number: "03",
+    title: "Context That Works",
+    description: "Your AI gets precisely ranked snippets based on your *intent*. Stop explaining your code to your AI.",
+  }
+];
+---
+
+<section id="how-it-works" class="section-hc relative bg-[var(--bg-elevated)]">
+  <div class="container-hc">
+    <!-- Section Header -->
+    <div class="text-center max-w-2xl mx-auto mb-16">
+      <h2 class="heading-h2 mb-4">
+        How it works
+      </h2>
+      <p class="text-body-lg">
+        From install to context in under 2 minutes. Zero configuration required.
+      </p>
+    </div>
+    
+    <!-- Steps -->
+    <div class="max-w-4xl mx-auto">
+      <div class="relative">
+        <!-- Connecting line -->
+        <div class="absolute left-8 top-12 bottom-12 w-px bg-gradient-to-b from-[var(--accent)] via-[var(--accent)]/50 to-[var(--border-color)] hidden md:block"></div>
+        
+        <!-- Step items -->
+        <div class="space-y-12 md:space-y-16">
+          {steps.map((step, index) => (
+            <div class="relative flex flex-col md:flex-row gap-6 md:gap-12">
+              <!-- Step number -->
+              <div class="flex-shrink-0 relative z-10">
+                <div class="w-16 h-16 rounded-2xl bg-[var(--bg-card)] border border-[var(--border-color)] flex items-center justify-center shadow-lg">
+                  <span class="text-h4 font-semibold text-[var(--accent)]">{step.number}</span>
+                </div>
+              </div>
+              
+              <!-- Content -->
+              <div class="flex-1 pb-4">
+                <h3 class="heading-h3 mb-3">
+                  {step.title}
+                </h3>
+                <p class="text-body-lg max-w-xl">
+                  {step.description}
+                </p>
+                
+                {/* Step 1: Show install command */}
+                {index === 0 && (
+                  <div class="mt-6 code-block inline-flex items-center gap-3 text-code">
+                    <span class="text-[var(--text-muted)]">$</span>
+                    <span class="text-[var(--accent)]">code</span>
+                    <span class="text-[var(--text-primary)]">--install-extension hugecontext.vsix</span>
+                  </div>
+                )}
+                
+                {/* Step 2: Show supported clients */}
+                {index === 1 && (
+                  <div class="mt-6 flex flex-wrap gap-3">
+                    {["Claude", "Cursor", "Kilo Code", "VS Code", "Gemini", "Warp"].map(client => (
+                      <span class="px-3 py-1.5 rounded-full text-caption font-medium bg-[var(--bg-card)] border border-[var(--border-color)] text-[var(--text-secondary)]">
+                        {client}
+                      </span>
+                    ))}
+                  </div>
+                )}
+                
+                {/* Step 3: Show intent types */}
+                {index === 2 && (
+                  <div class="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3">
+                    {[
+                      { intent: "Debug", icon: "🔍" },
+                      { intent: "Refactor", icon: "⚡" },
+                      { intent: "Understand", icon: "📖" },
+                      { intent: "Tests", icon: "✓" }
+                    ].map(item => (
+                      <div class="flex items-center gap-2 px-3 py-2 rounded-lg bg-[var(--bg-card)] border border-[var(--border-color)]">
+                        <span class="w-6 h-6 rounded bg-[var(--accent-muted)] flex items-center justify-center text-xs">{item.icon}</span>
+                        <span class="text-caption font-medium text-[var(--text-secondary)]">{item.intent}</span>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

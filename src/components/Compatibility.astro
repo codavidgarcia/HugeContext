@@ -1,0 +1,71 @@
+---
+// Compatibility Section - MCP clients
+const clients = [
+  { name: "Claude Desktop", type: "Desktop App" },
+  { name: "Cursor", type: "IDE" },
+  { name: "Kilo Code", type: "Extension" },
+  { name: "VS Code Copilot", type: "Extension" },
+  { name: "Gemini Code Assist", type: "Extension" },
+  { name: "Warp", type: "Terminal" },
+  { name: "Antigravity", type: "Extension" },
+  { name: "Windsurf", type: "IDE" },
+];
+---
+
+<section id="compatibility" class="section-hc">
+  <div class="container-hc">
+    <!-- Section Header -->
+    <div class="text-center max-w-2xl mx-auto mb-16">
+      <h2 class="heading-h2 mb-4">
+        One protocol. Every tool.
+      </h2>
+      <p class="text-body-lg">
+        HugeContext speaks MCP — the Model Context Protocol. Connect once, work everywhere.
+      </p>
+    </div>
+    
+    <!-- Clients Grid -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mb-12">
+      {clients.map((client, index) => (
+        <div 
+          class="group p-6 rounded-xl bg-[var(--bg-card)] border border-[var(--border-subtle)] hover:border-[var(--accent)]/50 transition-all hover:shadow-lg"
+          style={`animation-delay: ${index * 50}ms`}
+        >
+          <div class="flex flex-col items-center text-center gap-3">
+            <!-- Icon placeholder -->
+            <div class="w-12 h-12 rounded-xl bg-[var(--bg-elevated)] border border-[var(--border-color)] flex items-center justify-center group-hover:border-[var(--accent)]/30 transition-colors">
+              <svg class="w-6 h-6 text-[var(--text-muted)] group-hover:text-[var(--accent)] transition-colors" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 7.5l3 2.25-3 2.25m4.5 0h3m-9 8.25h13.5A2.25 2.25 0 0021 18V6a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 6v12a2.25 2.25 0 002.25 2.25z" />
+              </svg>
+            </div>
+            
+            <div>
+              <p class="text-body font-medium text-[var(--text-primary)]">{client.name}</p>
+              <p class="text-caption text-[var(--text-muted)]">{client.type}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+    
+    <!-- MCP Protocol Badge -->
+    <div class="flex justify-center">
+      <a 
+        href="https://modelcontextprotocol.io/" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-[var(--bg-card)] border border-[var(--border-color)] hover:border-[var(--accent)] transition-colors group"
+      >
+        <div class="w-8 h-8 rounded-full bg-[var(--accent-muted)] flex items-center justify-center">
+          <svg class="w-4 h-4 text-[var(--accent)]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m9.193-9.193a4.5 4.5 0 00-6.364 0l-4.5 4.5a4.5 4.5 0 106.364 6.364l1.757-1.757" />
+          </svg>
+        </div>
+        <span class="text-body font-medium text-[var(--text-primary)]">Model Context Protocol</span>
+        <svg class="w-4 h-4 text-[var(--text-muted)] group-hover:text-[var(--accent)] transition-colors" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>

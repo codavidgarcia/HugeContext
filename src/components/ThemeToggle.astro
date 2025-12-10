@@ -1,0 +1,100 @@
+---
+// Theme Toggle Component
+---
+
+<button
+  id="theme-toggle"
+  type="button"
+  class="relative flex items-center justify-center w-10 h-10 rounded-lg transition-colors hover:bg-[var(--accent-muted)] focus-visible:outline-2 focus-visible:outline-[var(--accent)]"
+  aria-label="Toggle theme"
+>
+  <!-- Sun Icon (shown in dark mode) -->
+  <svg
+    class="sun-icon w-5 h-5 transition-transform duration-200"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.5"
+    viewBox="0 0 24 24"
+  >
+    <path
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"
+    />
+  </svg>
+  
+  <!-- Moon Icon (shown in light mode) -->
+  <svg
+    class="moon-icon w-5 h-5 absolute transition-transform duration-200"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.5"
+    viewBox="0 0 24 24"
+  >
+    <path
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"
+    />
+  </svg>
+</button>
+
+<style>
+  [data-theme="dark"] .sun-icon {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+  }
+  
+  [data-theme="dark"] .moon-icon {
+    opacity: 0;
+    transform: rotate(-90deg) scale(0);
+  }
+  
+  [data-theme="light"] .sun-icon {
+    opacity: 0;
+    transform: rotate(90deg) scale(0);
+  }
+  
+  [data-theme="light"] .moon-icon {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+  }
+</style>
+
+<script>
+  function initThemeToggle() {
+    const toggle = document.getElementById('theme-toggle');
+    if (!toggle) return;
+
+    toggle.addEventListener('click', () => {
+      const html = document.documentElement;
+      const currentTheme = html.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      
+      html.setAttribute('data-theme', newTheme);
+      localStorage.setItem('hc-theme', newTheme);
+      
+      // Update favicon
+      const favicon = document.querySelector('link[rel="icon"]') as HTMLLinkElement;
+      if (favicon) {
+        favicon.href = newTheme === 'dark' ? '/HugeContextIcon-Dark.png' : '/HugeContextIcon-Light.png';
+      }
+      
+      // Update logo images
+      document.querySelectorAll('[data-theme-logo]').forEach((img) => {
+        const imgEl = img as HTMLImageElement;
+        const darkSrc = imgEl.getAttribute('data-dark-src');
+        const lightSrc = imgEl.getAttribute('data-light-src');
+        if (darkSrc && lightSrc) {
+          imgEl.src = newTheme === 'dark' ? darkSrc : lightSrc;
+        }
+      });
+    });
+  }
+
+  // Run on initial load
+  initThemeToggle();
+  
+  // Re-run on Astro page transitions
+  document.addEventListener('astro:after-swap', initThemeToggle);
+</script>

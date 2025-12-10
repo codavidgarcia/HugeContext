@@ -1,0 +1,85 @@
+---
+// Why Local Context - 3 feature columns
+const features = [
+  {
+    title: "SOTA Performance on CPU",
+    description: "Outperforms GPU cloud setups (text-embedding-3-large + Qdrant) on repos with 7000+ files. Independent benchmark verified.",
+    icon: "speed",
+    accent: "var(--accent)"
+  },
+  {
+    title: "Intent-Aware IQ",
+    description: "It doesn't just 'search'. It detects if you are debugging, refactoring, or writing tests, and adapts its ranking strategy instantly.",
+    icon: "relevance",
+    accent: "var(--accent)"
+  },
+  {
+    title: "Ironclad Privacy",
+    description: "Your intellectual property stays yours. Local indexing means your code never leaves your machine. 100% Private.",
+    icon: "privacy",
+    accent: "var(--accent)"
+  }
+];
+---
+
+<section id="features" class="section-hc relative">
+  <div class="container-hc">
+    <!-- Section Header -->
+    <div class="text-center max-w-2xl mx-auto mb-16">
+      <h2 class="heading-h2 mb-4">
+        Make every token count. <br class="hidden sm:block" />
+        <span class="text-[var(--accent)]">Start using real context.</span>
+      </h2>
+      <p class="text-body-lg">
+        Generic context engines are blind. HugeContext sees your entire repo with SOTA accuracy.
+      </p>
+    </div>
+    
+    <!-- Features Grid -->
+    <div class="grid md:grid-cols-3 gap-8">
+      {features.map((feature, index) => (
+        <div 
+          class="card-hc p-8 group"
+          style={`animation-delay: ${index * 100}ms`}
+        >
+          <!-- Icon -->
+          <div class="w-14 h-14 rounded-xl bg-[var(--accent-muted)] border border-[var(--accent)]/30 flex items-center justify-center mb-6 group-hover:border-[var(--accent)] transition-colors">
+            {feature.icon === "privacy" && (
+              <svg class="w-7 h-7 text-[var(--accent)]" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+              </svg>
+            )}
+            {feature.icon === "relevance" && (
+              <svg class="w-7 h-7 text-[var(--accent)]" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
+              </svg>
+            )}
+            {feature.icon === "speed" && (
+              <svg class="w-7 h-7 text-[var(--accent)]" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5m.75-9l3-3 2.148 2.148A12.061 12.061 0 0116.5 7.605" />
+              </svg>
+            )}
+          </div>
+          
+          <!-- Content -->
+          <h3 class="heading-h4 mb-3">
+            {feature.title}
+          </h3>
+          <p class="text-body-md">
+            {feature.description}
+          </p>
+        </div>
+      ))}
+    </div>
+    
+    <!-- Trust indicator -->
+    <div class="mt-16 text-center">
+      <p class="inline-flex items-center gap-2 text-caption text-[var(--text-muted)]">
+        <svg class="w-4 h-4 text-[var(--success)]" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" />
+        </svg>
+        Runs fully local. Your code never leaves this machine.
+      </p>
+    </div>
+  </div>
+</section>
