@@ -2,7 +2,7 @@
 
 **Dynamic, Intent-Aware Semantic Memory for LLMs**
 
-[![VS Code](https://img.shields.io/badge/VS%20Code-Extension-blue.svg)](https://code.visualstudio.com/)
+[![VS Code](https://img.shields.io/badge/VS%20Code-Extension-blue.svg)](https://marketplace.visualstudio.com/items?itemName=codavidgarcia.hugecontext)
 [![MCP Compatible](https://img.shields.io/badge/MCP-Compatible-green.svg)](https://modelcontextprotocol.io/)
 [![License: Internal Use](https://img.shields.io/badge/License-Internal_Use-orange.svg)](./LICENSE)
 
@@ -26,7 +26,7 @@ Unlike cloud-based solutions, HugeContext runs **entirely locally** - your code 
 
 ### Step 1: Install the Extension
 ```bash
-code --install-extension hugecontext-1.0.17.vsix
+code --install-extension codavidgarcia.hugecontext
 ```
 Or install via VS Code: Extensions → ... → Install from VSIX
 
@@ -84,7 +84,7 @@ For clients like **Kilo Code** that support global MCP settings, use this config
 
 ### Cursor / Windsurf / Antigravity (VSIX + MCP)
 
-1. Install the VSIX in your IDE: "Install from VSIX…" (or CLI e.g. `cursor --install-extension /path/to/hugecontext-1.0.30.vsix`).
+1. Install the extension in your IDE from the Marketplace (search for "HugeContext") or use the CLI: `code --install-extension codavidgarcia.hugecontext`.
 2. Add the MCP block to the IDE MCP settings. For Cursor, use the wrapper in `~/.cursor/mcp.json`:
    ```json
    {
