@@ -3,18 +3,18 @@
 const steps = [
   {
     number: "01",
-    title: "Auto-Index Everything",
-    description: "Open any project. HugeContext silently indexes files, functions, and imports in the background. No manual config needed.",
+    title: "Native Indexing",
+    description: "Open any project. HugeContext silently builds an AST-aware knowledge graph in the background. Zero configuration required.",
   },
   {
     number: "02",
     title: "Plug & Play",
-    description: "Connect instantly to Claude, Cursor, Windsurf, or VS Code via MCP. Changes are reflected in real-time.",
+    description: "Connect instantly to Claude, Cursor, Windsurf, or VS Code via MCP. Your agent gets a technical blueprint of your project instantly.",
   },
   {
     number: "03",
-    title: "Context That Works",
-    description: "Your AI gets precisely ranked snippets based on your *intent*. Stop explaining your code to your AI.",
+    title: "Structural Ranking",
+    description: "Your AI gets precisely ranked snippets based on relationship density and architectural importance. Stop working blind.",
   }
 ];
 ---
@@ -62,7 +62,7 @@ const steps = [
                   <div class="mt-6 code-block inline-flex items-center gap-3 text-code">
                     <span class="text-[var(--text-muted)]">$</span>
                     <span class="text-[var(--accent)]">code</span>
-                    <span class="text-[var(--text-primary)]">--install-extension codavidgarcia.hugecontext</span>
+                     <span class="text-[var(--text-primary)]">--install-extension hugecontext-*.vsix</span>
                   </div>
                 )}
                 

@@ -40,7 +40,7 @@
     <span class="text-[var(--accent)]">"hugecontext"</span><span class="text-[#9CA3AF]">:</span> <span class="text-[#9CA3AF]">{</span>
       <span class="text-[var(--accent)]">"command"</span><span class="text-[#9CA3AF]">:</span> <span class="text-[#22C55E]">"node"</span><span class="text-[#9CA3AF]">,</span>
       <span class="text-[var(--accent)]">"args"</span><span class="text-[#9CA3AF]">:</span> <span class="text-[#9CA3AF]">[</span>
-        <span class="text-[#22C55E]">"/path/to/HugeContext/dist/mcp-cli.js"</span>
+        <span class="text-[#22C55E]">"/path/to/HugeContext/dist/mcp-cli.sec.js"</span>
       <span class="text-[#9CA3AF]">]</span>
     <span class="text-[#9CA3AF]">}</span>
   <span class="text-[#9CA3AF]">}</span>
@@ -54,19 +54,19 @@
             <svg class="w-4 h-4 text-[var(--accent)]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
             </svg>
-            <span class="text-caption font-medium text-[var(--text-secondary)]">query_context</span>
+            <span class="text-caption font-medium text-[var(--text-secondary)]">query_codebase_graph</span>
           </div>
           <span class="badge-hc scale-90">MCP Tool</span>
         </div>
         <pre id="query-example" class="code-block m-0 rounded-none text-sm"><code class="language-json"><span class="text-[#9CA3AF]">{</span>
-  <span class="text-[var(--accent)]">"query"</span><span class="text-[#9CA3AF]">:</span> <span class="text-[#22C55E]">"how does authentication work?"</span><span class="text-[#9CA3AF]">,</span>
+  <span class="text-[var(--accent)]">"query"</span><span class="text-[#9CA3AF]">:</span> <span class="text-[#22C55E]">"how does auth work?"</span><span class="text-[#9CA3AF]">,</span>
   <span class="text-[var(--accent)]">"workspace"</span><span class="text-[#9CA3AF]">:</span> <span class="text-[#22C55E]">"/Users/dev/my-project"</span>
 <span class="text-[#9CA3AF]">}</span>
-
+ 
 <span class="text-[#64748B]">// Response includes:</span>
-<span class="text-[#64748B]">// - Ranked code snippets by similarity</span>
+<span class="text-[#64748B]">// - Ranked code snippets (Vector + Relationship Density)</span>
 <span class="text-[#64748B]">// - File paths and line numbers</span>
-<span class="text-[#64748B]">// - Intent-adjusted filtering</span></code></pre>
+<span class="text-[#64748B]">// - Structural impact indicators</span></code></pre>
       </div>
     </div>
     

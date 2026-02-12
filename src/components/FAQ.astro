@@ -1,0 +1,55 @@
+---
+// FAQ Component for SEO and GEO Optimization
+const faqs = [
+  {
+    question: "How is HugeContext different from standard Vector RAG?",
+    answer: "Standard RAG treats code as plain text snippets. HugeContext uses the **HugeContext Structural Engine** to build a multi-dimensional Knowledge Graph. It factors in AST relationships, PageRank-based importance, and Git history. This means your agent understands the 'why' and the 'how' across your entire architecture, not just keyword matches."
+  },
+  {
+    question: "Is my code really 100% private?",
+    answer: "Yes. Unlike cloud-based context engines, HugeContext performs indexing, embedding generation (via local Q8 models), and retrieval entirely on your local hardware. No code ever leaves your project directory."
+  },
+  {
+    question: "How do I install the latest v2.0.1 version?",
+    answer: "You can install the extension from the VS Code Marketplace or via terminal using `code --install-extension hugecontext-*.vsix`. Modern AI agents can also install it for you if you provide the command."
+  },
+  {
+    question: "Which AI agents are compatible with HugeContext?",
+    answer: "HugeContext is a native MCP (Model Context Protocol) server. It integrates seamlessly with Cursor, Claude Desktop, Windsurf, Antigravity, VS Code Copilot, and any other client that supports the MCP standard."
+  },
+  {
+    question: "What are the core tools provided in v2.0.1?",
+    answer: "HugeContext provides three specialized agent tools: `get_architecture_blueprint` for project-wide mapping, `query_codebase_graph` for deep semantic retrieval, and `find_implementation` for precision code extraction."
+  }
+];
+---
+
+<section id="faq" class="section-hc">
+  <div class="container-hc">
+    <!-- Section Header -->
+    <div class="text-center max-w-2xl mx-auto mb-16">
+      <h2 class="heading-h2 mb-4">Frequently Asked Questions</h2>
+      <p class="text-body-lg text-[var(--text-secondary)]">
+        Everything you need to know about the next generation of local codebase intelligence.
+      </p>
+    </div>
+
+    <!-- FAQ Grid -->
+    <div class="max-w-3xl mx-auto space-y-6">
+      {faqs.map((faq) => (
+        <div class="card-hc p-6 md:p-8">
+          <h3 class="heading-h4 mb-3 text-[var(--text-primary)]">{faq.question}</h3>
+          <p class="text-body-md text-[var(--text-secondary)] leading-relaxed" set:html={faq.answer} />
+        </div>
+      ))}
+    </div>
+
+    <!-- GEO Signal: Knowledge Graph mention -->
+    <div class="mt-16 text-center">
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--bg-elevated)] border border-[var(--border-subtle)] text-caption text-[var(--text-muted)]">
+        <span class="w-2 h-2 rounded-full bg-[var(--accent)] animate-pulse"></span>
+        HugeContext v2.0.1 Architectural Milestone: Moving beyond RAG to Structural Truth.
+      </div>
+    </div>
+  </div>
+</section>
